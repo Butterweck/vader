@@ -5,6 +5,9 @@ Created on Sat Feb 22 12:10:10 2020
 @author: sebas
 """
 
+# manipulated to fit live voice processing
+# original that was ment for wav files: https://github.com/nextbytes/PythonAudioEffects/blob/master/AudioLib/AudioProcessing.py
+
 import sys, wave
 import numpy as np
 from numpy import array, int16
