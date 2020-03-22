@@ -17,8 +17,8 @@ pa = PyAudio()
 sample_rate = 44100
 frames = 1024
 silence_count = 0
-breathe_after = 50
-silence_threshold = 2
+breathe_after = 70
+silence_threshold = 3
 
 # callback method that is executed on every audio chunk recorded by the mic
 # returns manipulated audio data that is played on the speakers then
@@ -40,9 +40,10 @@ def callback(in_data, frame_count, time_info, flag):
 	
 	# vader effect audio manipulation
 	out_data = AudioProcessing(sample_rate, numpy_in_data)
-	out_data.set_audio_speed(.7)
-	out_data.set_lowpass(2000)
+	out_data.set_audio_speed(.8)
+	#out_data.set_lowpass(5000)
 	out_data.set_echo(0.02)
+	out_data.set_volume(4)
 	numpy_out_data = out_data.get_audio()
 	
 	# numpy array to bytes

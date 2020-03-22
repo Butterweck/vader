@@ -54,7 +54,7 @@ class AudioProcessing(object):
 		for count, e in enumerate(self.audio_data):
 			output_audio[count] = (e * level)
 
-		self.audio_data = output_audio
+		self.audio_data = output_audio.astype(int16)
 
 	def set_reverse(self):
 		'''Reverses the audio'''
@@ -101,7 +101,7 @@ class AudioProcessing(object):
 		nyquist = self.sample_freq / 2.0
 		cutoff = cutoff_low / nyquist
 		x, y = signal.butter(order, cutoff, btype='lowpass', analog=False)
-		self.audio_data = signal.filtfilt(x, y, self.audio_data).astype(int)
+		self.audio_data = signal.filtfilt(x, y, self.audio_data).astype(int16)
 
 	def set_highpass(self, cutoff_high, order=5):
 		'''Applies a high pass filter'''
