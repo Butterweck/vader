@@ -77,7 +77,9 @@ stream_voice = pa.open(format = paInt16,
                  channels = 1,
                  rate = sample_rate,
                  input = True,
+				 input_device_index = 2,
                  output = True,
+				 output_device_index = 1,
                  frames_per_buffer = frames,
                  stream_callback = callback)
 
