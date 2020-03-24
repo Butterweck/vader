@@ -19,6 +19,8 @@ frames = 1024
 silence_count = 0
 breathe_after = 70
 silence_threshold = 3
+input_index = 2
+output_index = 1
 
 # callback method that is executed on every audio chunk recorded by the mic
 # returns manipulated audio data that is played on the speakers then
@@ -57,7 +59,8 @@ def play_a_breathe():
 	stream_breathe = pa.open(format = pa.get_format_from_width(breathe.getsampwidth()),
                 channels = breathe.getnchannels(),
                 rate = breathe.getframerate(),
-                output = True)
+                output = True,
+				output_device_index = output_index)
 	data_breathe = breathe.readframes(frames)
 	
 	# start stream
@@ -77,9 +80,9 @@ stream_voice = pa.open(format = paInt16,
                  channels = 1,
                  rate = sample_rate,
                  input = True,
-				 input_device_index = 2,
                  output = True,
-				 output_device_index = 1,
+				 input_device_index = input_index,
+				 output_device_index = output_index,
                  frames_per_buffer = frames,
                  stream_callback = callback)
 
