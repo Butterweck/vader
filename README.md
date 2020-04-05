@@ -4,7 +4,7 @@ make user pi autologin
 
 configure wifi
 
-sudo apt -get install 
+sudo apt-get install git
 
 mkdir /home/pi/git
 
@@ -12,19 +12,10 @@ cd /home/pi/git
 
 git clone https://www.github.com/Butterweck/vader.git
 
-sudo apt-get install python2-numpy
+cp /home/pi/git/vader/sample_.asoundrc /home/pi/.asoundrc #check hardware cards with aplay -l and arecord -l
 
-sudo apt-get install python2-scipy
+sudo apt-get install sox
 
-sudo apt-get install python2-pyaudio
+alsamixer #check volume levels of in and output
 
-sudo apt-get install alsa-utils
-
-sudo apt-get install alsa-tools
-
-sudo apt-get install libportaudio0 libportaudio2 libportaudiocpp0 portaudio19-dev
-
-Find cards with: cat /proc/asound/cards and use them as device index in vader.py
-
-configure autostart for vader.py
-* cd /home/pi/git/vader; python3 vader.py
+crontab -e: @reboot sh /home/pi/git/vader/vader.sh > /home/pi/vader.log 2>&1
