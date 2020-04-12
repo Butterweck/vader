@@ -19,3 +19,5 @@ sudo apt-get install sox
 alsamixer #check volume levels of in and output
 
 crontab -e: @reboot sh /home/pi/git/vader/vader.sh > /home/pi/vader.log 2>&1
+
+sudo nano /boot/config.txt #add force_turbo=1
