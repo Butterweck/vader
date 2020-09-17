@@ -24,6 +24,7 @@ crontab -e: @reboot sh /home/pi/git/vader/performance.sh; cp /home/pi/vader.log 
 
 #Overclocking
 - sudo nano /boot/config.txt
+
 #add
 - force_turbo=1
 - arm_freq=1085
