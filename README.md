@@ -20,6 +20,15 @@ sudo apt-get install sox
 
 alsamixer #check volume levels of in and output
 
-crontab -e: @reboot cp /home/pi/vader.log /home/pi/vader.log.backup; sh /home/pi/git/vader/vader.sh > /home/pi/vader.log 2>&1
+crontab -e: @reboot sh /home/pi/git/vader/performance.sh; cp /home/pi/vader.log /home/pi/vader.log.backup; sh /home/pi/git/vader/vader.sh > /home/pi/vader.log 2>&1
 
-sudo nano /boot/config.txt #add force_turbo=1
+#Overclocking
+sudo nano /boot/config.txt
+#add
+force_turbo=1
+arm_freq=1085
+gpu_freq=530
+over_voltage=2
+core_freq=515
+sdram_freq=533
+over_voltage_sdram=1
